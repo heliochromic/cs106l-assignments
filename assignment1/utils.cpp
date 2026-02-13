@@ -11,6 +11,9 @@
  * Forward declarations of some important methods. Don't worry about these!
  * (unless you really want to).
  */
+
+#include <iostream>
+
 bool operator==(const Course& lhs, const Course& rhs);
 std::ostream& operator<<(std::ostream& os, const Course& course);
 
