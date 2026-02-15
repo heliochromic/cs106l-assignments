@@ -5,7 +5,7 @@ Make a Class
 ------------
 
 Q1. What’s const-correctness and why is it important?
-A1. TODO
+A1.  const-correctness means using keyword 'const' to prevent changing const objects  
 
 Q2. Is your class const-correct? How do you know?
-A2. TODO
+A2. Yes, all member variables are private and accessor methods like getAmount(), getPaymentMethod(), and getEmail() are marked const, while only setEmail() (which modifies state) is non-const.
