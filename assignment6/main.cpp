@@ -52,10 +52,14 @@ public:
    * @param course_title The title of the course to find.
    * @return You will need to figure this out!
    */
-  FillMeIn find_course(std::string course_title)
+  std::optional<Course> find_course(std::string course_title)
   {
-    /* STUDENT_TODO: Implement this method! You will need to change the return
-     * type. */
+    for (const auto& course : courses) {
+      if (course.title == course_title) {
+        return course;
+      }
+    }
+    return std::nullopt;
   }
 
 private:
@@ -81,7 +85,11 @@ main(int argc, char* argv[])
     Please pay special attention to the README here
     ********************************************************/
 
-    std::string output = /* STUDENT_TODO */
+    std::string output = course.transform(
+      [] (const Course& course) {
+        return std::format("Found course: {},{},{}", course.title, course.number_of_units, course.quarter);
+      }
+    ).value_or("Course not found.");
 
     /********************************************************
      DO NOT MODIFY ANYTHING BELOW THIS LINE PLEASE
